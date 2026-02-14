@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Guide - Puzzle Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #34495e;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        ol {
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+            color: #d63384;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+
+            a {
+                text-decoration: underline;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hosting Your Website for Discord Access</h1>
+
+    <p>To access your website from Discord (e.g., share a link that others can click), you need to "host" it on the
+        internet. Since you don't have code>git</code> available in your terminal, here are the easiest methods:</p>
+
+    <h2>Method 1: Netlify Drop (Easiest)</h2>
+    <ol>
+        <li>Go to <a href="https://app.netlify.com/drop">app.netlify.com/drop</a>.</li>
+        <li>Locate your <code>web</code> folder on your computer:
+            <br><code>c:\Users\brian\puzzle\web</code>
+        </li>
+        <li>Drag and drop the entire <code>web</code> folder onto the area that says "Drag and drop your site folder
+            here".</li>
+        <li>Netlify will upload your site and give you a random URL (e.g.,
+            <code>https://random-name.netlify.app</code>).
+        </li>
+        <li>Copy this URL and paste it into Discord!</li>
+    </ol>
+
+    <h2>Method 2: GitHub (Manual Upload)</h2>
+    <ol>
+        <li>Go to <a href="https://github.com">github.com</a> and sign in/sign up.</li>
+        <li>Click the <strong>+</strong> icon in the top right and select <strong>New repository</strong>.</li>
+        <li>Name it (e.g., <code>puzzle-website</code>) and click <strong>Create repository</strong>.</li>
+        <li>Look for the link that says <strong>uploading an existing file</strong>.</li>
+        <li>Drag all files from your <code>web</code> folder (<code>index.html</code>, <code>style.css</code>,
+            <code>script.js</code>, <code>secret.mp3</code>) into the upload box.
+        </li>
+        <li>Click <strong>Commit changes</strong>.</li>
+        <li><strong>Enable GitHub Pages (to make it playable):</strong>
+            <ul>
+                <li>Click <strong>Settings</strong> (top processing bar).</li>
+                <li>On the left sidebar, click <strong>Pages</strong>.</li>
+                <li>Under <strong>Build and deployment</strong> > <strong>Source</strong>, select <strong>Deploy from a
+                        branch</strong>.</li>
+                <li>Under <strong>Branch</strong>, select <code>main</code> and keep folder as <code>/(root)</code>.
+                </li>
+                <li>Click <strong>Save</strong>.</li>
+                <li>Wait 1-2 minutes.</li>
+                <li>Refresh the page. You will see your live site link (e.g.,
+                    <code>https://yourusername.github.io/puzzle-website/</code>) at the top. This is the link to share!
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="note">
+        <strong>Note on Audio:</strong><br>
+        If you use the placeholder <code>secret.mp3</code>, it will work immediately. If you replace it with a real
+        song, make sure the file name is exactly <code>secret.mp3</code> or update the code in <code>index.html</code>
+        to match the new name before uploading.
+    </div>
+
+    <h2>How to Update Your Site</h2>
+    <p>If you make changes to your files (like <code>index.html</code>) on your computer, you need to upload them again
+        to GitHub:</p>
+    <ol>
+        <li>Go to your repository on GitHub.</li>
+        <li>Click <strong>Add file</strong> > <strong>Upload files</strong>.</li>
+        <li>Drag the updated file(s) (e.g., <code>index.html</code>) into the box.</li>
+        <li>Add a commit message (e.g., "Updated password text") and click <strong>Commit changes</strong>.</li>
+        <li>Wait 1-2 minutes for your website link to update automatically.</li>
+    </ol>
+
+</body>
+
+</html>

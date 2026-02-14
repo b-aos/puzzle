@@ -1,0 +1,4 @@
+.env
+puzzle.env
+__pycache__/
+*.pyc
