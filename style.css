@@ -26,13 +26,13 @@ body {
     align-items: center;
     overflow: hidden;
     color: var(--text-primary);
-    cursor: url('cursor-inverted-question.svg') 16 16, auto;
+    cursor: url('mycursor.png') 16 16, auto;
 }
 
 a,
 button,
 input {
-    cursor: url('cursor-exclamation.svg') 16 16, pointer;
+    cursor: url('myhover.png') 16 16, pointer;
 }
 
 .container {
