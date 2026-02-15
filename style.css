@@ -26,14 +26,9 @@ body {
     align-items: center;
     overflow: hidden;
     color: var(--text-primary);
-    cursor: url('mycursor.png.svg') 16 16, auto;
 }
 
-a,
-button,
-input {
-    cursor: url('myhover.png.svg') 16 16, pointer;
-}
+
 
 .container {
     width: 100%;
