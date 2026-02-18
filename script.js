@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMessage = document.getElementById('error-message');
     const secretAudio = document.getElementById('secret-audio');
 
-    // The hashed password (SHA-256) for "FORGIVE ME AS AN ACT WONT BE NECESSARY"
+
     const CORRECT_HASH = "bf08e17138533f5c0a516560d13d236a32988e0d13f4c42e4a5f96c5010356ac";
 
     async function checkPassword() {
