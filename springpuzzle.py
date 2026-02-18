@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Bot setup with intents
 intents = discord.Intents.default()
 intents.message_content = True
 intents.guilds = True
@@ -16,7 +15,6 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.event
 async def on_ready():
-    """Event triggered when bot is ready"""
     print(f'{bot.user} has connected to Discord!')
     try:
         synced = await bot.tree.sync()
@@ -25,23 +23,16 @@ async def on_ready():
         print(f"Failed to sync commands: {e}")
 
 @bot.tree.command(name="advance", description="advance thy self")
-@app_commands.describe(answer="Enter your answer to advance")
+@app_commands.describe(answer="¿")
 async def advance(interaction: discord.Interaction, answer: str):
-    """
-    Slash command that checks if user has role 'III' and if they provide
-    the correct answer 'worcestershire', then grants them role 'IV'
-    """
+
     
-    # Get the user's roles
     member = interaction.user
     guild = interaction.guild
     
-    # Find the required role "III"
     role_three = discord.utils.get(guild.roles, name="III")
-    # Find the role to grant "IV"
     role_four = discord.utils.get(guild.roles, name="IV")
     
-    # Check if roles exist
     if not role_three:
         await interaction.response.send_message(
             "Error: Role 'III' doesn't exist on this server. Please contact an administrator.",
@@ -56,7 +47,6 @@ async def advance(interaction: discord.Interaction, answer: str):
         )
         return
     
-    # Check if user has role "III"
     if role_three not in member.roles:
         await interaction.response.send_message(
             "need role III",
@@ -64,7 +54,6 @@ async def advance(interaction: discord.Interaction, answer: str):
         )
         return
     
-    # Check if user already has role "IV"
     if role_four in member.roles:
         await interaction.response.send_message(
             "you already have step 4",
@@ -72,7 +61,6 @@ async def advance(interaction: discord.Interaction, answer: str):
         )
         return
     
-    # Check if the answer is correct
     if answer.lower() == "alphabet":
         try:
             await member.add_roles(role_four)
@@ -96,9 +84,7 @@ async def advance(interaction: discord.Interaction, answer: str):
             ephemeral=True
         )
 
-# Run the bot
 if __name__ == "__main__":
-    # Get token from environment variable
     TOKEN = os.getenv('DISCORD_BOT_TOKEN')
     
     if not TOKEN:
