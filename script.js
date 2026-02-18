@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const CORRECT_HASH = "bf08e17138533f5c0a516560d13d236a32988e0d13f4c42e4a5f96c5010356ac";
 
     async function checkPassword() {
+        if (!window.crypto || !window.crypto.subtle) {
+            alert("Security Error: This site requires HTTPS to function. Please try accessing the site with 'https://' instead of 'http://'.");
+            return;
+        }
+
         const userInput = passwordInput.value;
 
         // Convert input to a buffer
